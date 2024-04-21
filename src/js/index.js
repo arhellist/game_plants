@@ -61,8 +61,6 @@ let stage1_left_top_full_sheet,
   functionItemsBasketMenu,
   concatArrayElemsMainmenu;
 
-//Variables elements
-//Stage-1
 
 // insertStage_1, insertStage_2, insertStage_3 - описания вставки сцен при первом запуске
 const insertStage_1 = () => {
@@ -392,6 +390,7 @@ const insertStage_1 = () => {
     stage1_btn_start,
   ];
 };
+
 // insertStage_1, insertStage_2, insertStage_3 - описания вставки сцен при первом запуске
 const insertStage_2 = () => {
   console.log("запущен скрипт insertStage_2");
@@ -908,6 +907,7 @@ const insertStage_2 = () => {
     stage2_btn_start,
   ];
 };
+
 // insertStage_1, insertStage_2, insertStage_3 - описания вставки сцен при первом запуске
 const insertStage_3 = () => {
   console.log("запущен скрипт insertStage_3");
@@ -1488,7 +1488,6 @@ const insertMenuCanva = () => {
   ];
 };
 
-
 // Функциональные элемены меню "КАПЛЯ"
 const insertDropMenu = () => {
   console.log(
@@ -1794,15 +1793,14 @@ const startmain = () => {
     boost_menu_drop_range.addEventListener("input", () => {
       boostArray.forEach((item, index) => {
         if (index === Number(boost_menu_drop_range.value)) {
-          if (item.classList.contains('animate-hide')) {
+          if (item.classList.contains("animate-hide")) {
             item.classList.remove("animate-hide");
-           item.classList.add("animate-appearance");
-                     } else {
+            item.classList.add("animate-appearance");
+          } else {
             item.classList.add("animate-appearance");
           }
         } else {
           if (item.classList.contains("animate-appearance")) {
-            
             item.classList.add("animate-hide");
             item.classList.remove("animate-appearance");
           }
@@ -1863,7 +1861,8 @@ const firstStart = () => {
   insertStage_1();
 
   // Обработчик кнопки "Начать" на stage-1
-  stage1_btn_start.addEventListener("click", () => {
+  const runStage_1 = () => {
+    stage1_btn_start.removeEventListener("click", runStage_1); //Снятие обработчика нажатия кнопки Начать Stage-1
     console.log('Нажата кнопка "Начать" на stage-1');
     insertStage_2();
 
@@ -1902,7 +1901,8 @@ const firstStart = () => {
       console.log("stage-1 удален из верстки");
     }, 650);
 
-    stage2_btn_start.addEventListener("click", () => {
+    const runStage_2 = () => {
+      stage2_btn_start.removeEventListener("click", runStage_2); // снятие обработчика нажатия кнопки ОК Stage-2
       console.log('Обработчик кнопки "Ok" на stage-2');
       insertStage_3();
       stage_2.forEach((item) => {
@@ -1972,7 +1972,9 @@ const firstStart = () => {
         console.log("stage-2 удален из верстки");
       }, 650);
 
-      stage3_button.addEventListener("click", () => {
+      // Функция обработчика рендеринга Основного фрейма
+      const runMainFrame = () => {
+        stage3_button.removeEventListener("click", runMainFrame);
         console.log('Обработчик кнопки "Посдить первое растение" на stage-3');
         stage_3.forEach((item) => {
           item.setAttribute("style", "opacity: 1");
@@ -2025,9 +2027,13 @@ const firstStart = () => {
         }, 650);
 
         /*Запускосновного фрейма*/ startmain();
-      });
-    });
-  });
+      };
+      // Запуск обработчика рендеринга Основного фрейма
+      stage3_button.addEventListener("click", runMainFrame);
+    };
+    stage2_btn_start.addEventListener("click", runStage_2);
+  };
+  stage1_btn_start.addEventListener("click", runStage_1);
 };
 
 firstStart();
