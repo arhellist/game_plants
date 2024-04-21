@@ -608,14 +608,48 @@ body {
 
 /*Items boost menu*/
 /*DROP*/
-.boost_menu_drop {
+.boost_menu_drop_drop {
   position: absolute;
+  z-index: 2;
   width: 137px;
-  height: 234px;
+  height: 170px;
   left: 50%;
   transform: translateX(-50%);
   top: 25%;
+  opacity: 0;
 }
+.boost_menu_drop_plant{
+  position: absolute;
+  z-index: 2;
+  width: 162px;
+  height: 162px;
+  left: 53%;
+  transform: translateX(-50%);
+  top: 25%;
+  opacity: 0;
+}
+.boost_menu_drop_TGK{
+  position: absolute;
+  z-index: 2;
+  width: 122px;
+  height: 127px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 30%;
+  opacity: 0;
+}
+
+
+.boost_menu_drop_shadow{
+  position: absolute;
+  z-index: 2;
+  width: 92px;
+  height: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 53%;
+}
+
 
 .boost_menu_drop_info {
   position: absolute;
@@ -777,13 +811,6 @@ body {
 }
 
 
-
-
-
-
-
-
-
 /*Классы анимации*/
 
 /*анимация изменения фона*/
@@ -806,8 +833,8 @@ body {
 /*анимация ичезновения на месте*/
 .animate-hide {
   opacity: 1;
-  animation: hide 1s;
-  -webkit-animation: hide 1s;
+  animation: hide .5s;
+  -webkit-animation: hide .5s;
   animation-fill-mode: forwards;
 }
 @keyframes hide {
@@ -822,7 +849,7 @@ body {
 /*анимация ичезновения поворотом влево*/
 .animate-hide-rotate-move-left {
   opacity: 1;
-  animation: hide-rotate-move-left 1s;
+  animation: hide-rotate-move-left .5s;
   animation-fill-mode: forwards;
 }
 @keyframes hide-rotate-move-left {
@@ -838,7 +865,7 @@ body {
 /*анимация ичезновения поворотом вправо*/
 .animate-hide-rotate-move-right {
   opacity: 1;
-  animation: hide-rotate-move-right 1s;
+  animation: hide-rotate-move-right .5s;
   animation-fill-mode: forwards;
 }
 @keyframes hide-rotate-move-right {
@@ -854,7 +881,7 @@ body {
 /*анимация поворота вправо - для stage1_bottom_empty_fern*/
 .animate-stage1_bottom_empty_fern {
   opacity: 1;
-  animation: rotate-stage1_bottom_empty_fern-right 1s;
+  animation: rotate-stage1_bottom_empty_fern-right .5s;
   animation-fill-mode: forwards;
 }
 @keyframes rotate-stage1_bottom_empty_fern-right {
@@ -869,7 +896,7 @@ body {
 /*анимация ичезновения поворотом влево и выходом за границу (для паппоротника stage-1)*/
 .animate-hide-rotate-move-left-fern {
   opacity: 1;
-  animation: hide-rotate-move-left-fern 1s;
+  animation: hide-rotate-move-left-fern .5s;
   animation-fill-mode: forwards;
 }
 @keyframes hide-rotate-move-left-fern {
@@ -885,7 +912,7 @@ body {
 /*анимация ичезновения с увеличением*/
 .animate-hide-scale {
   opacity: 1;
-  animation: hide-scale 1s;
+  animation: hide-scale .5s;
   animation-fill-mode: forwards;
 }
 @keyframes hide-scale {
@@ -901,7 +928,7 @@ body {
 /*анимация ичезновения с уменьшением*/
 .animate-hide-scale-down {
   opacity: 1;
-  animation: hide-scale-down 1s;
+  animation: hide-scale-down .5s;
   animation-fill-mode: forwards;
 }
 @keyframes hide-scale-down {
@@ -921,7 +948,7 @@ body {
 /*анимация ичезновения перемещением вниз*/
 .animate-hide-move-bottom {
   opacity: 1;
-  animation: hide-move-bottom 1s;
+  animation: hide-move-bottom .5s;
   animation-fill-mode: forwards;
 }
 @keyframes hide-move-bottom {
@@ -937,7 +964,7 @@ body {
 /*анимация ичезновения перемещением влево*/
 .animate-hide-move-left {
   opacity: 1;
-  animation: hide-move-left 1s;
+  animation: hide-move-left .5s;
   animation-fill-mode: forwards;
 }
 @keyframes hide-move-left {
@@ -953,8 +980,8 @@ body {
 /*анимация ичезновения перемещением вправо*/
 .animate-hide-move-right {
   opacity: 1;
-  animation: hide-move-right 1s;
-  -webkit-animation: hide-move-right 1s;
+  animation: hide-move-right .5s;
+  -webkit-animation: hide-move-right .5s;
   animation-fill-mode: forwards;
 }
 @keyframes hide-move-right {
@@ -990,9 +1017,11 @@ body {
 /*Появления*/
 
 .animate-appearance {
-  animation: appearance 2s;
+  animation: appearance 1s;
+  -webkit-animation: appearance 1s;
   animation-fill-mode: forwards;
   animation-delay: 0.5s;
+
 }
 @keyframes appearance {
   0% {
@@ -1007,7 +1036,7 @@ body {
 .animate-appearance-rotate {
   animation: appearance-rotate 2s;
   animation-fill-mode: forwards;
-  animation-delay: 1s;
+  animation-delay: .5s;
 }
 @keyframes appearance-rotate {
   0% {
