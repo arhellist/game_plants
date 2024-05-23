@@ -10,7 +10,7 @@ export function main() {
         "afterbegin",`<canvas id="c"></canvas>`);
        
   const canvas = document.querySelector("#c");
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true,  antialias : true });
   const loader = new THREE.TextureLoader();
 
   const objects = [];
